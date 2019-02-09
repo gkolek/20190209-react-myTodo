@@ -15,18 +15,44 @@ class App extends Component {
     ]
   }
 
-  handleChange = (event, taskId) => {
-    console.log('kliknięte', taskId, event.target.checked)
+  updateTask = (taskId, newValue, field) => {
     const taskIndex = this.state.tasks.findIndex(task => task.id === taskId);
     const task = this.state.tasks[taskIndex];
 
-    task.completed = event.target.checked;
+    task[field] = newValue;
 
     const tasks = [...this.state.tasks];
     tasks[taskIndex] = task;
 
     this.setState({ tasks: tasks })
+
   }
+
+  handleChange = (event, taskId) => {
+    // console.log('kliknięte', taskId, event.target.checked)
+    // const taskIndex = this.state.tasks.findIndex(task => task.id === taskId);
+    // const task = this.state.tasks[taskIndex];
+
+    // task.completed = event.target.checked;
+
+    // const tasks = [...this.state.tasks];
+    // tasks[taskIndex] = task;
+
+    // this.setState({ tasks: tasks })
+    this.updateTask(taskId, event.target.checked, 'completed')
+  }
+
+  updateHandler = (newName, taskId) => {
+    // const taskIndex = this.state.tasks.findIndex(task => task.id === taskId);
+    // const task = this.state.tasks[taskIndex];
+
+    // task.name = newName;
+
+    // const tasks = [...this.state.tasks];
+    // tasks[taskIndex] = task;
+    // this.setState({ tasks: tasks })
+      this.updateTask(taskId, newName, 'name')
+}
 
   handleCreate = (name) => {
     const uuId = Math.floor(Math.random() * 1000)
@@ -43,17 +69,6 @@ class App extends Component {
     tasks.splice(taskIndex, 1);
     this.setState({ tasks })
 
-  }
-
-  updateHandler = (newName, taskId) => {
-    const taskIndex = this.state.tasks.findIndex(task => task.id === taskId);
-    const task = this.state.tasks[taskIndex];
-
-    task.name = newName;
-
-    const tasks = [...this.state.tasks];
-    tasks[taskIndex] = task;
-    this.setState({ tasks: tasks })
   }
 
   render() {
