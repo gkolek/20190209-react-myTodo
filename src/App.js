@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import TaskContainer from './TaskContainer'
 import CreateTask from './CreateTask'
+import FilterContainer from './FilterContainer'
 
 
 class App extends Component {
@@ -29,7 +30,7 @@ class App extends Component {
   }
 
   handleChange = (event, taskId) => {
-    // console.log('kliknięte', taskId, event.target.checked)
+    console.log('kliknięte', taskId, event.target.checked)
     // const taskIndex = this.state.tasks.findIndex(task => task.id === taskId);
     // const task = this.state.tasks[taskIndex];
 
