@@ -11,6 +11,7 @@ const TaskContainer = (props) => (
                 task={task}
                 handleChange={(event) => props.handleChange(event, task.id)}
                 handleRemove={() => props.handleRemove(task.id)}
+                updateHandler={(newName)=> props.updateHandler(newName, task.id)}
             />
         ))}
     </div>
