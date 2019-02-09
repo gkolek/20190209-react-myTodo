@@ -7,16 +7,14 @@ class Task extends Component {
             ? { textDecoration: 'line-through' }
             : {};
         return (
-            <div>
-                <p style={styles}>
-                    <input
-                        type="checkbox"
-                        checked={this.props.task.completed}
-                        onChange={this.props.handleChange}
-                    />
-                    {this.props.task.name}
-                </p>
-
+            <div style={styles}>
+                <input
+                    type="checkbox"
+                    checked={this.props.task.completed}
+                    onChange={this.props.handleChange}
+                />
+                {this.props.task.name}
+                <button onClick={this.props.handleRemove}>x</button>
             </div>
         )
     }
